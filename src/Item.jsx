@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 export default function Item(props) {
+  let {name,price, emoji} = props
   //      state  setState                   state    setState
   const [count, setCount] = useState(0) // [variable, function()]
 
@@ -12,9 +13,9 @@ export default function Item(props) {
 
   return (
     <div className='item'>
-      <div>{props.name}</div>
-      <div>{props.emoji}</div>
-      <div>{props.price}</div>
+      <div>{name}</div>
+      <div>{emoji}</div>
+      <div>{price}</div>
       <div>
         <button onClick={() => setCount(count + 1)}>+</button>
         <span>{count}</span>
