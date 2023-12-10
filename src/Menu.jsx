@@ -7,7 +7,7 @@ export default function Menu(props) {
         <div>
             <div id="buttons">
                 <button onClick={() => hanleColor()}>All</button>
-                {colors.map(c => <button onClick={() => hanleColor(c)}>{c}</button>)}
+                {colors.map(c => <button key={c} onClick={() => hanleColor(c)}>{c}</button>)}
             </div>
             <Search hanleSearch={hanleSearch} />
         </div>

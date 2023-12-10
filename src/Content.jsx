@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import Menu from "./Menu";
 
@@ -9,6 +9,8 @@ export default function Content({items}) {
   //   items : [{},{}]
   // }
   const [displayItems, setDisplayItems] = useState(items)
+
+  useEffect(()=>{setDisplayItems(items)} , [items])
 
   const hanleColor = (c) => {
     setDisplayItems(c ? items.filter(f => f.color == c) : items)
