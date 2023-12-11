@@ -23,7 +23,7 @@ export default function Content({items}) {
   items.forEach(f => { if (!colors.includes(f.color)) colors.push(f.color) })
 
   return (
-    <div>
+    <div className="content">
       <Menu hanleColor={hanleColor} hanleSearch={hanleSearch} colors={colors} />
       <ItemList displayItems={displayItems} />
     </div>

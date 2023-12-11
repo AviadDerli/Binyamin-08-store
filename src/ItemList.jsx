@@ -4,11 +4,9 @@ export default function ItemList({displayItems}) {
 
    
     return (
-        <div>
             <div id="itemList">
                 {displayItems
-                    .map(f => <Item key={f.id} name={f.name} price={f.price} emoji={f.emoji} />)}
+                    .map(f => <Item key={f.id} item={f} />)}
             </div>
-        </div>
     )
 }

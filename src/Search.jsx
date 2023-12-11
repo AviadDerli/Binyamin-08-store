@@ -1,6 +1,5 @@
 
 export default function Search(props) {
-
   return (
     <div>
         <input type='text' 

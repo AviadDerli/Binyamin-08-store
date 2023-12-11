@@ -1,25 +1,45 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import CartContext from './context/CartContext'
 
-export default function Item(props) {
-  let {name,price, emoji} = props
-  //      state  setState                   state    setState
-  const [count, setCount] = useState(0) // [variable, function()]
+export default function Item({item}) {
+  let { name, price, emoji, id } = item
+  //  get context >>> useContext , MyContextEngine
 
-  const handleMinus = () => {
-    if (count > 0) {
-      setCount(count - 1)
+  const { cart, setCart } = useContext(CartContext)
+
+  const handlePlus = (id) => {
+    let copied = { ...cart }
+    if (cart[id]) {
+      copied[id].qty += 1
     }
+    else {
+      copied[id] = { ...item, qty: 1 }
+    }
+    setCart(copied)
+  }
+  const handleMinus = (id) => {
+    if (!cart[id]) return;
+    let copied = { ...cart }
+    if (copied[id].qty > 1) {
+      copied[id].qty -= 1
+    }
+    else {
+      delete copied[id]
+    }
+    setCart(copied)
   }
 
+
+  console.log(cart);
   return (
     <div className='item'>
       <div>{name}</div>
       <div>{emoji}</div>
       <div>{price}</div>
       <div>
-        <button onClick={() => setCount(count + 1)}>+</button>
-        <span>{count}</span>
-        <button onClick={handleMinus} >-</button>
+        <button onClick={() => handlePlus(id)}>+</button>
+        <span>{cart[id]?.qty || 0}</span>
+        <button onClick={()=>handleMinus(id)}>-</button>
       </div>
     </div>
   )

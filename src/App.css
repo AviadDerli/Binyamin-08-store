@@ -1,6 +1,6 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 2rem;
   text-align: center;
 }
@@ -50,5 +50,25 @@ margin:20px
   justify-content: center;
   width: 550px;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+ .cart {
+  width: 250px;
+  border: 1px solid;
+}
+
+.content {
+  padding: 0 50px;
+    width: 700px;
+}
+
+.header {
+  width: 100%;
+} 
+
+.layout{
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
