@@ -6,8 +6,8 @@ import Header from './Header'
 
 export default function Layout() {
   const [items, setItems] = useState([])
-  const [cart, setCart] = useState({})
-  
+  const [cart, setCart] = useState(JSON.parse(localStorage.cart ?? '{}'))
+
   useEffect(() => {
     fetch('https://jbh-mockserver.onrender.com/fruits')
       .then(r => r.json())
@@ -16,10 +16,14 @@ export default function Layout() {
       })
   }, [])
 
+  useEffect(() => {
+    localStorage.cart = JSON.stringify(cart)
+  }, [cart])
+
   return (
     <div className='layout'>
-      <CartContext.Provider value={    {cart,setCart}    }>
-        <Header/>
+      <CartContext.Provider value={{ cart, setCart }}>
+        <Header />
         <Cart />
         <Content items={items} />
       </CartContext.Provider>

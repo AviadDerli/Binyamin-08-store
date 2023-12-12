@@ -68,7 +68,11 @@
 }
 
 .header {
+  margin-bottom: 10px;
   width: 100%;
+  font-size: 30px;
+  text-align: left;
+  cursor: pointer;
 }
 
 .layout {

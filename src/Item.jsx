@@ -34,13 +34,13 @@ export default function Item({ item, isInCart }) {
     setCart(copied)
   }
 
-  console.log(cart);
   return (
     <div className='item'>
       <div className='recycle' onClick={() => handleRemove(id)}>
         {isInCart && <span>❌</span>}
       </div>
-      <div className={isInCart && 'item-cart'}>
+      <div className={isInCart && 'item-cart'} style={{ cursor: 'pointer' }}
+        onClick={() => location.href = 'http://127.0.0.1:5173/item/' + id}>
         <div>{name}</div>
         <div>{emoji}</div>
         <div>{price}</div>

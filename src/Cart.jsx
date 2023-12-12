@@ -4,13 +4,13 @@ import Total from "./Total";
 import CartContext from "./context/CartContext";
 
 export default function Cart() {
-  const {setCart} = useContext(CartContext)
+  const { setCart } = useContext(CartContext)
   return (
     <div className="cart">
       <h3>Cart</h3>
-      <button onClick={()=>setCart({})}>Delete All 🗑</button>
+      <button onClick={() => setCart({})}>Delete All 🗑</button>
       <CartList />
-      <Total/>
+      <Total />
     </div>
   )
 }
