@@ -6,8 +6,8 @@ export default function CartList() {
     const { cart } = useContext(CartContext)
 
     return (
-        <div>
-            {Object.values(cart).map(c => <Item item={c} key={c.id}/> )}
+        <div className="scroll">
+            {Object.values(cart).map(c => <Item item={c} key={c.id} isInCart={true}/> )}
         </div>
     )
 }
