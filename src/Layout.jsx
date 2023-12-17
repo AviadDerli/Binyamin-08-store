@@ -9,7 +9,7 @@ export default function Layout() {
   const [cart, setCart] = useState(JSON.parse(localStorage.cart ?? '{}'))
 
   useEffect(() => {
-    fetch('https://jbh-mockserver.onrender.com/fruits')
+    fetch('https://jbh-mockserver.onrender.com/categories/fruits')
       .then(r => r.json())
       .then(data => {
         setItems(data)
