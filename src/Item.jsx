@@ -40,7 +40,7 @@ export default function Item({ item, isInCart }) {
         {isInCart && <span>❌</span>}
       </div>
         <div className={isInCart && 'item-cart'} style={{ cursor: 'pointer' }}>
-      <Link to={'http://localhost:5173/item/' + id}>
+      <Link to={'/item/' + id}>
           <div>{name}</div>
           <div>{emoji}</div>
           <div>{price}</div>
