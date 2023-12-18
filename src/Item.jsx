@@ -1,9 +1,9 @@
 import { useContext, useState } from 'react'
 import CartContext from './context/CartContext'
+import { Link } from 'react-router-dom'
 
 export default function Item({ item, isInCart }) {
   let { name, price, emoji, id } = item
-  //  get context >>> useContext , MyContextEngine
 
   const { cart, setCart } = useContext(CartContext)
 
@@ -35,22 +35,23 @@ export default function Item({ item, isInCart }) {
   }
 
   return (
-    <div className='item'>
+    <div className={'item' + (isInCart ? ' item-cart':'')}>
       <div className='recycle' onClick={() => handleRemove(id)}>
         {isInCart && <span>❌</span>}
       </div>
-      <div className={isInCart && 'item-cart'} style={{ cursor: 'pointer' }}
-        onClick={() => location.href = 'http://127.0.0.1:5173/item/' + id}>
-        <div>{name}</div>
-        <div>{emoji}</div>
-        <div>{price}</div>
-        <div>
-          <button onClick={() => handlePlus(id)}>+</button>
-          <span>{cart[id]?.qty || 0}</span>
-          <button onClick={() => handleMinus(id)}>-</button>
+        <div className={isInCart && 'item-cart'} style={{ cursor: 'pointer' }}>
+      <Link to={'http://localhost:5173/item/' + id}>
+          <div>{name}</div>
+          <div>{emoji}</div>
+          <div>{price}</div>
+      </Link>
         </div>
+      <div className={isInCart && 'btn-cart'}>
+        <button onClick={() => handlePlus(id)}>+</button>
+        <span>{cart[id]?.qty || 0}</span>
+        <button onClick={() => handleMinus(id)}>-</button>
       </div>
-
     </div>
+
   )
 }

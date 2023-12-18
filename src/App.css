@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   /* margin: 0 auto; */
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
+  width: 100%;
 }
 
 .logo {
@@ -72,7 +73,10 @@
   width: 100%;
   font-size: 30px;
   text-align: left;
-  cursor: pointer;
+  /* cursor: pointer; */
+  position: sticky;
+  top: 0;
+  background-color: #8888881a;
 }
 
 .layout {
@@ -84,19 +88,29 @@
 .item {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.item-cart{
-  width: 100%;
-    margin-left: -20px;
+
+.item-cart {
+  flex-direction: row;
+  width: 90%;
+  /* margin-left: -20px; */
+
 }
 
-.recycle{
+.btn-cart{
+  display: flex;
+  flex-direction: column;
+}
+.recycle {
   align-self: center;
   z-index: 1;
   cursor: pointer;
 }
-.recycle > span{
+
+.recycle>span {
   background-color: #ffffff;
   padding: 1px;
 }
