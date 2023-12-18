@@ -15,7 +15,7 @@ export default function Categories() {
     return (
         <div className="cards">
             {Object.keys(categories).map(c => {
-                return <Link to={'/categories/'+c}>
+                return <Link to={'/categories/'+c} key={c}>
                     <div className="card card-img" style={{ backgroundImage: `url(${categories[c]})` }}>
                         <span className="card__title">{c}</span>
                     </div>
