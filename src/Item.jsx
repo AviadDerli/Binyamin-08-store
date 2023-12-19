@@ -1,11 +1,14 @@
 import { useContext, useState } from 'react'
 import CartContext from './context/CartContext'
 import { Link } from 'react-router-dom'
+import PopupContext from './context/PopupContext'
+import ItemDetailsPopup from './ItemDetailsPopup'
 
 export default function Item({ item, isInCart }) {
   let { name, price, emoji, id } = item
 
   const { cart, setCart } = useContext(CartContext)
+  const { setPopup } = useContext(PopupContext)
 
   const handlePlus = (id) => {
     let copied = { ...cart }
@@ -39,12 +42,12 @@ export default function Item({ item, isInCart }) {
       <div className='recycle' onClick={() => handleRemove(id)}>
         {isInCart && <span>❌</span>}
       </div>
-        <div className={isInCart && 'item-cart'} style={{ cursor: 'pointer' }}>
-      <Link to={'/item/' + id}>
+        <div onClick={()=>{setPopup(<ItemDetailsPopup itemId={id}/>)}} className={isInCart && 'item-cart'} style={{ cursor: 'pointer' }}>
+      {/* <Link to={'/item/' + id}> */}
           <div>{name}</div>
           <div>{emoji}</div>
           <div>{price}</div>
-      </Link>
+      {/* </Link> */}
         </div>
       <div className={isInCart && 'btn-cart'}>
         <button onClick={() => handlePlus(id)}>+</button>
