@@ -7,7 +7,7 @@ import ItemList from "./ItemList";
 export default function Content({items,cart,setCart}) {
 
   return (
-    <div>
+    <div className="content">
       <ItemList items={items} cart={cart} setCart={setCart} />
     </div>
   )

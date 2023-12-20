@@ -143,7 +143,7 @@ export default function Layout() {
   const [cart, setCart] = useState({})
 
   return (
-    <div>
+    <div class="layout">
       <Cart cart={cart} setCart={setCart}/>
       <Content items={items} cart={cart} setCart={setCart} />
     </div>
