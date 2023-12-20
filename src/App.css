@@ -52,3 +52,31 @@ margin:20px
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.cart {
+  width: 250px;
+  height: 500px;
+  border: 1px solid;
+}
+
+.content {
+  padding: 0 50px;
+  width: 700px;
+}
+
+.header {
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 30px;
+  text-align: left;
+  /* cursor: pointer; */
+  position: sticky;
+  top: 0;
+  background-color: #8888881a;
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
