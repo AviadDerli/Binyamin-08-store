@@ -8,6 +8,8 @@
 // // option 1
 // let cart = [{ ...item, qty: 1 }]
 
+
+
 // // option 2
 // let cart2 = [{ id: item.id, qty: 1 }]
 
@@ -17,9 +19,15 @@
 // // option 4 !!!!
 // let cart4 = { "ab12": {...item,qty:1}  , "dsak":{...item,qty:7}}
 
+import CartList from "./CartList";
+import Total from "./Total";
 
-export default function Cart() {
+export default function Cart({cart,setCart}) {
     return (
-        <div>Cart</div>
+        <div>Cart
+
+            <CartList cart={cart} setCart={setCart}/>
+            <Total/>
+        </div>
     )
 }
