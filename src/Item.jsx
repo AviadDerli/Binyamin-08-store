@@ -1,6 +1,13 @@
+import DataContext from "./context/DataContext"
+import { useContext} from 'react'
 
-export default function Item({ item, cart, setCart }) {
+export default function Item({ item }) {
   let { name, emoji, price, id } = item
+
+  // const valueFromContext = useContext(DataContext)
+  // valueFromContext ={ cart, setCart }
+
+  const {cart,setCart} = useContext(DataContext)
 
   const handlePlus = () => {
     let newCart = { ...cart }

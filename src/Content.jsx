@@ -4,11 +4,11 @@ import ItemList from "./ItemList";
 // export default function Content(props) {
 //   let {items,cart,setItem} = props
                                        // props            
-export default function Content({items,cart,setCart}) {
+export default function Content({items}) {
 
   return (
     <div className="content">
-      <ItemList items={items} cart={cart} setCart={setCart} />
+      <ItemList items={items} />
     </div>
   )
 }

@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import CartItem from "./CartItem";
+import DataContext from "./context/DataContext";
 
-export default function CartList({ cart, setCart }) {
+export default function CartList() {
+    const {cart} = useContext(DataContext)
 
     return (
         <div className="scroll">
-            {Object.values(cart).map(c => <CartItem item={c} cart={cart} setCart={setCart} />)}
+            {Object.values(cart).map(c => <CartItem item={c} />)}
         </div>
     )
 }

@@ -1,12 +1,12 @@
+import { useContext } from "react"
+import DataContext from "./context/DataContext"
 
-export default function CartItem({ item, cart, setCart }) {
+export default function CartItem({ item}) {
     let { name, emoji, price, id } = item
+    const {cart,setCart} = useContext(DataContext)
 
     const handlePlus = () => {
         let newCart = { ...cart }
-        // let cart4 = { "ab12": {...item,qty:1}  , "dsak":{...item,qty:7} }
-
-        // אם קיים המוצר
         if (newCart[id]) {
             newCart[id].qty += 1
         }

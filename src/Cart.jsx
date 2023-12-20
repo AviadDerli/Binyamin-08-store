@@ -17,10 +17,14 @@
 // // option 4 !!!!
 // let cart4 = { "ab12": {...item,qty:1}  , "dsak":{...item,qty:7}}
 
+import { useContext } from "react";
 import CartList from "./CartList";
 import Total from "./Total";
+import DataContext from "./context/DataContext";
 
-export default function Cart({cart,setCart}) {
+export default function Cart() {
+
+  const {cart,setCart} = useContext(DataContext)
 
     const calcTotal = ()=>{
         let total = 0
@@ -31,7 +35,7 @@ export default function Cart({cart,setCart}) {
     return (
         <div className="cart">
             Cart
-            <CartList cart={cart} setCart={setCart}/>
+            <CartList />
             <Total total={calcTotal()}/>
         </div>
     )
