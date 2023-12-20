@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Content from './Content'
 import Cart from './Cart'
 
-const items = [
+const allItems = [
   {
     "id": "a1",
     "name": "Apple",
@@ -139,7 +139,7 @@ const items = [
 ]
 
 export default function Layout() {
-  const [items, setItems] = useState(items)
+  const [items, setItems] = useState(allItems)
   const [cart, setCart] = useState({})
 
   return (
