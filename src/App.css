@@ -80,3 +80,44 @@ margin:20px
   justify-content: center;
   flex-wrap: wrap;
 }
+
+
+.item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.item-cart {
+  flex-direction: row;
+  width: 90%;
+  /* margin-left: -20px; */
+
+}
+
+.btn-cart{
+  display: flex;
+  flex-direction: column;
+}
+.recycle {
+  align-self: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.recycle>span {
+  background-color: #ffffff;
+  padding: 1px;
+}
+
+.scroll {
+  margin: 4px, 4px;
+  padding: 4px;
+  padding-top: 20px;
+  width: 97%;
+  height: 370px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

@@ -1,6 +1,6 @@
 
-export default function Total() {
+export default function Total({total}) {
   return (
-    <div>Total</div>
+    <div><h3>{total.toFixed(2)}</h3></div>
   )
 }

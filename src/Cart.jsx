@@ -21,11 +21,18 @@ import CartList from "./CartList";
 import Total from "./Total";
 
 export default function Cart({cart,setCart}) {
+
+    const calcTotal = ()=>{
+        let total = 0
+        Object.values(cart).forEach(c=>total +=(c.price * c.qty))
+        return total
+    }
+    
     return (
         <div className="cart">
             Cart
             <CartList cart={cart} setCart={setCart}/>
-            <Total/>
+            <Total total={calcTotal()}/>
         </div>
     )
 }
