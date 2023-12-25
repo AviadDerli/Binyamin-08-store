@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Content from './Content'
 import Cart from './Cart'
 import DataContext from './context/DataContext'
+import data from './data'
 
 const allItems = [
   {
@@ -140,13 +141,13 @@ const allItems = [
 ]
 
 export default function Layout() {
-  const [items, setItems] = useState(allItems)
+  const [items, setItems] = useState(data.alcohol)
   const [cart, setCart] = useState({})
 
 
   return (
     <DataContext.Provider value={{ cart, setCart }} >
-      <div class="layout">
+      <div className="layout">
         <Cart />
         <Content items={items} />
       </div>
