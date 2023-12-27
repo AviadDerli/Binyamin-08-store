@@ -8,8 +8,8 @@ function App() {
 
 return (
   <div>
-    {/* <Layout/> */}
-    <Effect cntA={cntA} setCntA={setCntA}/>
+    <Layout/>
+    {/* <Effect cntA={cntA} setCntA={setCntA}/> */}
   </div>
   )
 }

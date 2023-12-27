@@ -1,14 +1,18 @@
+import { useState } from "react";
 import ItemList from "./ItemList";
+import Categories from "./Categories";
 
+export default function Content() {
 
-// export default function Content(props) {
-//   let {items,cart,setItem} = props
-                                       // props            
-export default function Content({items}) {
+  const [category, setCategory] = useState()
 
   return (
     <div className="content">
-      <ItemList items={items} />
+      {category ? <button onClick={()=>setCategory()}>Categories</button> : <></>}
+
+      {!category ?
+        <Categories setCategory={setCategory} /> :
+        <ItemList category={category} />}
     </div>
   )
 }

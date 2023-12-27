@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react"
 import Item from "./Item"
+import data from './data'
 
-export default function ItemList({items}) {
+export default function ItemList({category}) {
+
+    const [items,setItems] = useState([])
+
+    useEffect(()=>{
+        setItems(data[category])
+    },[])
+
+
+    console.log(category);
     return (
         <div>
             <div id="itemList">
