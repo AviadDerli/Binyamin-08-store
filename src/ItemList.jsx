@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import Item from "./Item"
-import data from './data'
 
 export default function ItemList({category}) {
 
     const [items,setItems] = useState([])
 
     useEffect(()=>{
-        setItems(data[category])
+        fetch('https://jbh-mockserver.onrender.com/categories/'+category)
+        .then(j => j.json() )
+        .then(data=>setItems(data))
     },[])
 
 

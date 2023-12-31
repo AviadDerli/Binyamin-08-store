@@ -81,6 +81,10 @@ margin:20px
   flex-wrap: wrap;
 }
 
+.img{
+  height: 150px;
+  cursor: pointer;
+}
 
 .item {
   display: flex;
