@@ -6,18 +6,18 @@ export default function ItemList({category}) {
     const [items,setItems] = useState([])
 
     useEffect(()=>{
-        fetch('https://jbh-mockserver.onrender.com/categories/'+category)
+        // /categories/alcohol ['','categories','category']
+        fetch('https://jbh-mockserver.onrender.com/categories/'+category.split('/')[2])
         .then(j => j.json() )
         .then(data=>setItems(data))
     },[])
 
 
-    console.log(category);
     return (
         <div>
             <div id="itemList">
                 {items
-                    .map(f => <Item key={f.id} item={f} />)}
+                    .map(product =><Item onClick={()=>location.href='/items/'+product.id}key={product.id} item={product} />)}
             </div>
         </div>
     )

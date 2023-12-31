@@ -125,3 +125,7 @@ margin:20px
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.buttons{
+  z-index:5;
+}

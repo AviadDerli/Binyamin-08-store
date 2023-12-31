@@ -1,7 +1,7 @@
 import DataContext from "./context/DataContext"
 import { useContext} from 'react'
 
-export default function Item({ item }) {
+export default function Item({ item,onClick=()=>{} }) {
   let { name, emoji, price, id } = item
 
   // const valueFromContext = useContext(DataContext)
@@ -37,13 +37,13 @@ export default function Item({ item }) {
   }
 
   return (
-    <div className='item'>
+    <div className='item' onClick={onClick}>
       <div>{name}</div>
       <div>{emoji}</div>
       <div>{price}</div>
-      <div>
+      <div className='buttons' onClick={(e)=>{e.stopPropagation()}}>
         <button onClick={handlePlus}>+</button>
-        <span>{cart[id]?.qty || 0}</span>
+        <span>{cart&&cart[id]?.qty || 0}</span>
         <button onClick={handleMinus} >-</button>
       </div>
     </div>

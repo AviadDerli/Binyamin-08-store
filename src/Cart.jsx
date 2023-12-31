@@ -23,20 +23,30 @@ import Total from "./Total";
 import DataContext from "./context/DataContext";
 
 export default function Cart() {
+  const { cart, setCart } = useContext(DataContext);
 
-  const {cart,setCart} = useContext(DataContext)
-
-    const calcTotal = ()=>{
-        let total = 0
-        Object.values(cart).forEach(c=>total +=(c.price * c.qty))
-        return total
-    }
-    
-    return (
-        <div className="cart">
-            Cart
-            <CartList />
-            <Total total={calcTotal()}/>
-        </div>
-    )
+  const calcTotal = () => {
+    let total = 0;
+    Object.values(cart).forEach((c) => (total += c.price * c.qty));
+    return total;
+  };
+  return (
+    <div className="cart">
+      Cart
+      {cart && (
+        <>
+          <button
+            onClick={() => {
+              setCart();
+              localStorage.removeItem("cart");
+            }}
+          >
+            clear cart
+          </button>
+          <CartList />
+          <Total total={calcTotal()} />
+        </>
+      )}
+    </div>
+  );
 }
