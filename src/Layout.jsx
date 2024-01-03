@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import Content from './Content'
 import Cart from './Cart'
 import DataContext from './context/DataContext'
+import { useState } from 'react'
 
 export default function Layout() {
   const [cart, setCart] = useState({})

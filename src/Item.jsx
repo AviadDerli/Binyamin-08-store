@@ -1,9 +1,10 @@
+import { Link, useNavigate } from "react-router-dom"
 import DataContext from "./context/DataContext"
 import { useContext } from 'react'
 
 export default function Item({ item }) {
   let { name, emoji, price, id } = item
-
+  const nav = useNavigate()
   // const valueFromContext = useContext(DataContext)
   // valueFromContext ={ cart, setCart }
 
@@ -38,11 +39,19 @@ export default function Item({ item }) {
 
   return (
     <div className='item'>
-      <div onClick={()=>location.href='/item/'+id}>
-        <div>{name}</div>
-        <div>{emoji}</div>
-        <div>{price}</div>
-      </div>
+
+      <Link to={'/item/' + id}>
+
+        {/* <div onClick={()=>nav('/item/' + id)}> */}
+        <div>
+          <div>{name}</div>
+          <div>{emoji}</div>
+          <div>{price}</div>
+        </div>
+
+      </Link>
+
+
       <div>
         <button onClick={handlePlus}>+</button>
         <span>{cart[id]?.qty || 0}</span>

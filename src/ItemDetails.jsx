@@ -1,15 +1,19 @@
+import { useNavigate, useParams } from "react-router"
 import DataContext from "./context/DataContext"
 import { useContext, useEffect, useState } from 'react'
 
-export default function ItemDetails({ itemId }) {
+export default function ItemDetails() {
   const [item, setItem] = useState({})
   const {name,price,id, emoji} = item
   const { cart, setCart } = useContext(DataContext)
+const nav = useNavigate()
+  const {itemId} = useParams()
 
   useEffect(()=>{
     fetch('https://jbh-mockserver.onrender.com/items/'+itemId)
     .then(j => j.json() )
-    .then(data=>setItem(data))
+    .then(data=>setItem(data) )
+    .catch(()=>nav('/404'))
 },[])
 
   const handlePlus = () => {
