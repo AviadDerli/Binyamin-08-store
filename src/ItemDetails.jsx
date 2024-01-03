@@ -1,13 +1,16 @@
 import DataContext from "./context/DataContext"
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
-export default function Item({ item }) {
-  let { name, emoji, price, id } = item
-
-  // const valueFromContext = useContext(DataContext)
-  // valueFromContext ={ cart, setCart }
-
+export default function ItemDetails({ itemId }) {
+  const [item, setItem] = useState({})
+  const {name,price,id, emoji} = item
   const { cart, setCart } = useContext(DataContext)
+
+  useEffect(()=>{
+    fetch('https://jbh-mockserver.onrender.com/items/'+itemId)
+    .then(j => j.json() )
+    .then(data=>setItem(data))
+},[])
 
   const handlePlus = () => {
     let newCart = { ...cart }
@@ -38,11 +41,9 @@ export default function Item({ item }) {
 
   return (
     <div className='item'>
-      <div onClick={()=>location.href='/item/'+id}>
-        <div>{name}</div>
-        <div>{emoji}</div>
-        <div>{price}</div>
-      </div>
+      <h1>{name}</h1>
+      <h2>{emoji}</h2>
+      <h4>{price}</h4>
       <div>
         <button onClick={handlePlus}>+</button>
         <span>{cart[id]?.qty || 0}</span>

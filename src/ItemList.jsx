@@ -12,7 +12,6 @@ export default function ItemList({category}) {
     },[])
 
 
-    console.log(category);
     return (
         <div>
             <div id="itemList">

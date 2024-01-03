@@ -6,7 +6,6 @@ import DataContext from './context/DataContext'
 export default function Layout() {
   const [cart, setCart] = useState({})
 
-console.log(location.pathname);
   return (
     <DataContext.Provider value={{ cart, setCart }} >
       <div className="layout">
